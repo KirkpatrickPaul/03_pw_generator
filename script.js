@@ -27,6 +27,18 @@ function generatePassword(){
     var charactersWarning = alert("You must use at least one type of characters!")
     return false
   }
+  if (useCaps === false) {
+    delete characters.capital
+  }
+  if (useLowercase === false) {
+    delete characters.lowercase
+  }
+  if (useNumbers === false) {
+    delete characters.number
+  }
+  if (useSymbols === false) {
+    delete characters.symbol
+  }
   
   }
 // Write password to the #password input
