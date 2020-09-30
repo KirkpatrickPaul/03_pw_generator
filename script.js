@@ -1,14 +1,15 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var characters = {capital:
-  ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"], lowercase:
-  ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"], number:
-  ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"], symbol:
-  ["~", "!", "@", "#", "$", "%", "&", "?"]
-  };
 
 function generatePassword(){
   // Found array of uppercase and lowercase characters at https://gist.github.com/bendc/1e6af8f2d8027f2965da also, I decided to only include common and easy to read password special characters and not, for instance, math special characters or special characters only accessible by alt code.
+  
+  var characters = {capital:
+    ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
+    lowercase: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+    number: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+    symbol: ["~", "!", "@", "#", "$", "%", "&", "?"]
+    };
   var passwordLength = prompt("How long do you want your password to be?", "8 to 128 characters please");
   while(isNaN(passwordLength*0)){
     passwordLength = prompt(" Please only input numbers!", "Password Length");
@@ -18,11 +19,15 @@ function generatePassword(){
       passwordLength = Number(passwordLength);
     }
     }
-    var useCaps = confirm('Would you like to use capital letters in your password? Press "OK" for yes, and "Cancel" for no.')
-    var useLowercase = confirm('Would you like to use lowercase letters in your password? Press "OK" for yes, and "Cancel" for no.')
-    var useNumbers = confirm('Would you like to use numbers in your password? Press "OK" for yes, and "Cancel" for no.')
-    var useSymbols = confirm('Would you like to use symbols in your password? Press "OK" for yes, and "Cancel" for no.')
-    
+  var useCaps = confirm('Would you like to use capital letters in your password? Press "OK" for yes, and "Cancel" for no.')
+  var useLowercase = confirm('Would you like to use lowercase letters in your password? Press "OK" for yes, and "Cancel" for no.')
+  var useNumbers = confirm('Would you like to use numbers in your password? Press "OK" for yes, and "Cancel" for no.')
+  var useSymbols = confirm('Would you like to use symbols in your password? Press "OK" for yes, and "Cancel" for no.')
+  if (useCaps+useLowercase+useNumbers+useSymbols === 0) {
+    var charactersWarning = alert("You must use at least one type of characters!")
+    return false
+  }
+  
   }
 // Write password to the #password input
 function writePassword() {
@@ -32,6 +37,5 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
