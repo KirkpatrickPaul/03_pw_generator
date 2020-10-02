@@ -10,4 +10,4 @@ The password generator can be found at https://kirkpatrickpaul.github.io/03_pw_g
 
 The page should look like this!
 
-![My Password Generator]("./Password_Generator")
+!<img src=./Password_Generator>
