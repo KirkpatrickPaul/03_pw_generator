@@ -4,7 +4,7 @@ My password generator gives flexibility in generating a password while ensuring 
 
 Location
 
-The password generator can be found at https://kirkpatrickpaul.github.io/03_pw_generator/
+The password generator can be found at https://kirkpatrickpaul.github.io/password_generator/
 
 Picture
 
